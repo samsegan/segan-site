@@ -39,9 +39,10 @@
   const OPTIONS = [
     ['fx', 'Effect', [['streak', 'Streak', 'Long exposure'], ['crumble', 'Crumble', 'Cracked stone'], ['chrome', 'Chrome', 'Liquid metal'], ['pixels', 'Pixels', 'Blocks']]],
     ['bg', 'Backdrop', [['containers', 'Containers', 'Photo'], ['warehouse', 'Warehouse', 'Photo'], ['wall', 'Wall', 'Block wall'], ['black', 'Black', '']]],
-    ['type', 'Type', [['stone', 'Stone', 'Worn poster'], ['stencil', 'Stencil', 'Spray stencil'], ['clean', 'Clean', '']]],
+    ['type', 'Type', [['dusty', 'Dusty', 'Grotesque + serif'], ['classic', 'Classic', 'All serif'], ['poster', 'Poster', 'Stone + serif'], ['stone', 'Stone', 'Stone + mono'], ['stencil', 'Stencil', 'Spray stencil'], ['clean', 'Clean', '']]],
     ['tone', 'Accent', [['blue', 'Blue', 'Cool'], ['ice', 'Ice', 'Paler'], ['electric', 'Electric', 'Deeper']]],
   ];
+  const SERIF = ['dusty', 'classic', 'poster'];    // the small type is the serif in these
   const BACK = { containers: 'photo', warehouse: 'photo', wall: 'wall', black: 'black' };
   // the backdrop pictures. x, y: the point that stays in view when the window is tall and narrow.
   // drop: how far down the hero the photo's top edge sits (0 = the photo fills the hero); ?drop=.4 tries another
@@ -67,6 +68,8 @@
     for (const [key, , opts] of OPTIONS.slice(1)) {
       for (const [value] of opts) root.classList.toggle(`${key}-${value}`, look[key] === value);
     }
+    root.classList.toggle('serif', SERIF.includes(look.type));
+    if (look.type === 'poster') root.classList.add('type-stone');   // Poster = the stone capitals over the serif
     for (const fx of effects) {
       track(fx, true);
       if (replay) fx.intro();
@@ -141,7 +144,7 @@
   // ---------- letters that scramble on hover ----------
   const GLYPHS = '█▓▒░/\\<>#';
   function scramble(node) {
-    if (reduced || node._busy) return;
+    if (reduced || node._busy || SERIF.includes(look.type)) return;   // the serif stays still
     const text = node.textContent;
     node._busy = true;
     node.style.display = 'inline-block';
@@ -164,10 +167,10 @@
   // ---------- grit: worn-paint masks for the type, made once ----------
   // A tile that repeats without a seam: paint flaked off in ragged patches,
   // pinholes, a few scratches. wear = how much is gone.
-  function gritTile(size, wear, scratches, seed, mix) {
+  function gritTile(size, wear, scratches, seed, mix, cells = [6, 24, 96], specks = .03) {
     let a = seed;
     const rnd = () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t ^= t + Math.imul(t ^ (t >>> 7), 61 | t); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-    const layers = [6, 24, 96].map((n) => ({ n, v: Float32Array.from({ length: n * n }, rnd) }));
+    const layers = cells.map((n) => ({ n, v: Float32Array.from({ length: n * n }, rnd) }));
     const at = ({ n, v }, x, y) => {
       const fx = x * n / size, fy = y * n / size;
       const x0 = Math.floor(fx), y0 = Math.floor(fy), x1 = (x0 + 1) % n, y1 = (y0 + 1) % n;
@@ -181,7 +184,7 @@
     for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
       const worn = at(layers[0], x, y) * mix[0] + at(layers[1], x, y) * mix[1] + at(layers[2], x, y) * mix[2] + (rnd() - .5) * .07;
       let keep = Math.min(1, Math.max(0, (wear - worn) / .035 + 1));
-      if (rnd() < wear * .03) keep *= .15;
+      if (rnd() < wear * specks) keep *= .15;
       img.data[(y * size + x) * 4 + 3] = keep * 255;
     }
     ctx.putImageData(img, 0, 0);
@@ -212,6 +215,9 @@
   const rootStyle = document.documentElement.style;
   rootStyle.setProperty('--grit', gritTile(512, .71, 16, 7, [.4, .36, .24]));
   rootStyle.setProperty('--grit-fine', gritTile(384, .76, 0, 19, [.14, .36, .5]));
+  // dust: no big flakes, a cloud of small holes that thickens in patches
+  rootStyle.setProperty('--dust', gritTile(512, .69, 0, 31, [.26, .2, .54], [4, 34, 200], .09));
+  rootStyle.setProperty('--dust-fine', gritTile(384, .8, 0, 43, [.2, .2, .6], [4, 30, 150], .05));
   rootStyle.setProperty('--noise', noiseTile(160));
   const scatter = (node) => {                      // so no two titles wear in the same places
     node.style.setProperty('--mx', -Math.round(Math.random() * 460) + 'px');
@@ -603,7 +609,7 @@
   function past() {
     const root = document.documentElement;
     root.classList.toggle('scrolled', scrollY > 24);
-    root.classList.toggle('past', scrollY > $('#hero').offsetHeight - 64);
+    root.classList.toggle('past', scrollY > $('#hero').offsetHeight - 120);
   }
   addEventListener('scroll', past, { passive: true });
   addEventListener('hashchange', route);
