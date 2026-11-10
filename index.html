@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en" class="type-stone">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Segan</title>
+<meta name="description" content="Segan. Bass music from New York. New originals, edits and bootlegs.">
+<meta name="theme-color" content="#06080b">
+<meta property="og:title" content="Segan">
+<meta property="og:description" content="Bass music from New York. New originals, edits and bootlegs.">
+<meta property="og:image" content="img/segan.jpg">
+<link rel="icon" href="img/icon.png">
+<link rel="preload" href="fonts/Anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="top-logo" href="#top" aria-label="Segan, back to top"><img src="img/segan-logo.png" alt="Segan" width="480" height="140"></a>
+  <nav class="top-nav" aria-label="Sections">
+    <a href="#new" data-scramble>New</a>
+    <a href="#releases" data-scramble>Releases</a>
+    <a href="#contact" data-scramble>Contact</a>
+    <a href="#about" data-scramble>About</a>
+  </nav>
+  <a class="top-list" href="https://laylo.com/segan" target="_blank" rel="noopener" data-scramble>Get new tunes first</a>
+</header>
+
+<main id="top">
+
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <h1 class="hero-fallback"><img src="img/wordmark-1500.webp" alt="Segan"></h1>
+  <div class="hero-foot">
+    <div class="hero-new" id="hero-new" hidden>
+      <button type="button" class="hero-new-cover" id="hero-new-cover" aria-label="Play the new release"><img id="hero-new-art" alt="" width="500" height="500"></button>
+      <div class="hero-new-text">
+        <p class="hero-new-flag"><b id="hero-new-kind">New</b><span id="hero-new-date"></span></p>
+        <a class="hero-new-title" id="hero-new-title" href="#new"></a>
+        <p class="hero-new-by" id="hero-new-by"></p>
+        <div class="hero-new-actions" id="hero-new-actions"></div>
+      </div>
+    </div>
+    <p class="hero-where">New York<br><span id="hero-count">&nbsp;</span></p>
+  </div>
+</section>
+
+<section class="new" id="new" aria-labelledby="new-h">
+  <div class="rule"><h2 id="new-h">New</h2><span id="new-date"></span></div>
+  <div class="feature" id="feature"></div>
+  <div class="also" id="also"></div>
+</section>
+
+<section class="releases" id="releases" aria-labelledby="rel-h">
+  <div class="rule">
+    <h2 id="rel-h">Releases</h2>
+    <div class="filters" role="group" aria-label="Show">
+      <button type="button" data-filter="all" aria-pressed="true">All <i></i></button>
+      <button type="button" data-filter="original" aria-pressed="false">Originals <i></i></button>
+      <button type="button" data-filter="flip" aria-pressed="false">Edits + bootlegs <i></i></button>
+    </div>
+  </div>
+  <ol class="list" id="list"></ol>
+  <button type="button" class="more" id="more"></button>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="rule"><h2 id="contact-h">Contact</h2><a href="#about">About Segan →</a></div>
+  <div class="contact-grid">
+    <div>
+      <h3 class="big" data-break>Bookings</h3>
+      <a href="mailto:mgmt@segan.com">mgmt@segan.com</a>
+    </div>
+    <div>
+      <h3 class="big" data-break>Everything else</h3>
+      <a href="mailto:segan@segan.com">segan@segan.com</a>
+    </div>
+  </div>
+  <ul class="links">
+    <li><a href="https://open.spotify.com/artist/0NgWGGk9p04zLTeFbIdsVO" target="_blank" rel="noopener" data-break>Spotify</a></li>
+    <li><a href="https://soundcloud.com/sam-segan" target="_blank" rel="noopener" data-break>SoundCloud</a></li>
+    <li><a href="https://soundcloud.com/notsegan" target="_blank" rel="noopener" data-break>Segan's Selects</a></li>
+    <li><a href="https://www.instagram.com/segan/" target="_blank" rel="noopener" data-break>Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@seganmusic" target="_blank" rel="noopener" data-break>TikTok</a></li>
+    <li><a href="https://www.youtube.com/channel/UCxdXumVvOyv0oQ_HzxyNxUA" target="_blank" rel="noopener" data-break>YouTube</a></li>
+    <li><a href="https://x.com/seganofficial" target="_blank" rel="noopener" data-break>X</a></li>
+  </ul>
+</section>
+
+<section class="join" aria-labelledby="join-h">
+  <h2 class="big" id="join-h" data-break>New tunes first.</h2>
+  <p>One text when something drops.</p>
+  <a class="join-btn" href="https://laylo.com/segan" target="_blank" rel="noopener"><span>Join the list</span><i aria-hidden="true">↗</i></a>
+</section>
+
+<!-- its own view: shown instead of the sections above when the address ends in #about -->
+<section class="about" id="about" aria-labelledby="about-h">
+  <figure class="about-photo" id="about-photo"><img src="img/segan.jpg" alt="Segan, lit green against a black room" width="1600" height="1600"></figure>
+  <div class="about-text">
+    <p class="about-kicker">About</p>
+    <h2 class="about-head big" id="about-h" data-break>Bass music for dark rooms.</h2>
+    <div class="about-bio">
+      <p>Segan is a producer from New York making bass music for warehouses, basements and the walk home after.</p>
+      <p>Originals come out under his own name. The edits and bootlegs go up on <a href="https://soundcloud.com/notsegan" target="_blank" rel="noopener">Segan's Selects</a>, his side account, free to download.</p>
+      <p>No rules on tempo. If you need a genre: mostly drum &amp; bass.</p>
+    </div>
+    <dl class="about-facts">
+      <div><dt>Out so far</dt><dd id="about-count">&nbsp;</dd></div>
+      <div><dt>Bookings</dt><dd><a href="mailto:mgmt@segan.com">mgmt@segan.com</a></dd></div>
+      <div><dt>Everything else</dt><dd><a href="mailto:segan@segan.com">segan@segan.com</a></dd></div>
+    </dl>
+    <div class="about-actions">
+      <a class="btn btn-solid" href="#new">Hear the newest</a>
+      <a class="btn" href="#releases">All releases</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span>© 2026 Segan</span>
+  <button type="button" id="foot-options" data-scramble>Options</button>
+  <a href="#top" data-scramble>Back to top</a>
+</footer>
+
+<!-- options: effect, backdrop, type and accent. Filled in by app.js -->
+<button type="button" class="opt-tab" id="opt-tab" aria-controls="opt" aria-expanded="false">Options</button>
+<aside class="opt" id="opt" aria-label="Options" inert>
+  <div class="opt-head"><h2>Options</h2><button type="button" id="opt-close" aria-label="Close options">×</button></div>
+  <div id="opt-groups"></div>
+  <button type="button" class="opt-reset" id="opt-reset">Back to the defaults</button>
+</aside>
+
+<div class="peek" id="peek" aria-hidden="true"><canvas width="520" height="520"></canvas></div>
+
+<div class="dock" id="dock" hidden>
+  <button type="button" class="dock-play" id="dock-play" aria-label="Pause"></button>
+  <img class="dock-art" id="dock-art" alt="">
+  <div class="dock-meta"><strong id="dock-title"></strong><span><span id="dock-time"></span><span class="dock-via"> / playing from SoundCloud</span></span></div>
+  <div class="dock-bar" id="dock-bar"><i id="dock-fill"></i></div>
+  <a class="dock-out" id="dock-out" target="_blank" rel="noopener"><span>Open in </span>SoundCloud ↗</a>
+  <button type="button" class="dock-close" id="dock-close" aria-label="Close player">×</button>
+</div>
+
+<!-- rough: chipped edges on the big type. break-*: the letters crack into slabs for a moment (app.js drives the scale) -->
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <filter id="rough" x="-3%" y="-8%" width="106%" height="116%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="break-l" x="-8%" y="-20%" width="116%" height="140%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".005 .024" numOctaves="1" seed="1" result="n"/>
+    <feComponentTransfer in="n" result="s">
+      <feFuncR type="discrete" tableValues=".5 .5 .5 .1 .5 .5 .9 .5 .5 .5"/>
+      <feFuncG type="discrete" tableValues=".5 .5 .5 .5 .2 .5 .8 .5 .5 .5"/>
+    </feComponentTransfer>
+    <feDisplacementMap in="SourceGraphic" in2="s" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="break-s" x="-8%" y="-30%" width="116%" height="160%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".012 .09" numOctaves="1" seed="1" result="n"/>
+    <feComponentTransfer in="n" result="s">
+      <feFuncR type="discrete" tableValues=".5 .5 .5 .1 .5 .5 .9 .5 .5 .5"/>
+      <feFuncG type="discrete" tableValues=".5 .5 .5 .5 .2 .5 .8 .5 .5 .5"/>
+    </feComponentTransfer>
+    <feDisplacementMap in="SourceGraphic" in2="s" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<script src="fx.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

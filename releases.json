@@ -1,0 +1,971 @@
+[
+ {
+  "slug": "notsegan-think",
+  "title": "Kettama, Prospa - Think of You (Segan Edit)",
+  "date": "2026-11-09",
+  "type": "edit",
+  "genre": "Dubstep",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/think",
+   "download": "https://gaterush.me/Fys05R"
+  },
+  "seconds": 130,
+  "note": "Dub to scare the house girlies",
+  "art": "art/notsegan-think.jpg"
+ },
+ {
+  "slug": "see-u-bounce",
+  "title": "hayve & Segan - See U Bounce",
+  "date": "2026-09-23",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "label": "Monstercat",
+  "account": "spotify",
+  "links": {
+   "spotify": "https://open.spotify.com/track/7niB7gHrS3sVhILhHhZTp1"
+  },
+  "art": "art/see-u-bounce.jpg"
+ },
+ {
+  "slug": "notsegan-believe",
+  "title": "BELIEVE",
+  "date": "2026-08-14",
+  "type": "bootleg",
+  "genre": "Dubstep",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/believe",
+   "download": "https://gaterush.me/mT6dTs"
+  },
+  "seconds": 187,
+  "art": "art/notsegan-believe.jpg"
+ },
+ {
+  "slug": "notsegan-different",
+  "title": "Michael Bibi - Different Side (Segan Edit)",
+  "date": "2026-08-07",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/different",
+   "download": "https://gaterush.me/9jShXl"
+  },
+  "seconds": 195,
+  "art": "art/notsegan-different.jpg"
+ },
+ {
+  "slug": "sam-segan-btch",
+  "title": "B*TCH",
+  "date": "2026-07-24",
+  "type": "original",
+  "genre": "Dubstep",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/btch",
+   "download": "https://gaterush.me/odGsxS"
+  },
+  "seconds": 192,
+  "art": "art/sam-segan-btch.jpg"
+ },
+ {
+  "slug": "notsegan-boom",
+  "title": "BOOM BOOM BOOM",
+  "date": "2026-07-17",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/boom",
+   "download": "https://gaterush.me/yERTEq"
+  },
+  "seconds": 79,
+  "art": "art/notsegan-boom.jpg"
+ },
+ {
+  "slug": "sam-segan-feel-like-dancing",
+  "title": "FEEL LIKE DANCING",
+  "date": "2026-07-10",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/feel-like-dancing"
+  },
+  "seconds": 110,
+  "art": "art/sam-segan-feel-like-dancing.jpg"
+ },
+ {
+  "slug": "sam-segan-oh-gosh",
+  "title": "OH GOSH",
+  "date": "2026-07-03",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/oh-gosh",
+   "download": "https://gaterush.me/BdLGET"
+  },
+  "seconds": 169,
+  "art": "art/sam-segan-oh-gosh.jpg"
+ },
+ {
+  "slug": "notsegan-throw",
+  "title": "THROW SOME D'S",
+  "date": "2026-06-19",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/throw",
+   "download": "https://gaterush.me/tyqwWC"
+  },
+  "seconds": 147,
+  "art": "art/notsegan-throw.jpg"
+ },
+ {
+  "slug": "sam-segan-thin",
+  "title": "KEEP YOUR HEAD THIN",
+  "date": "2026-06-05",
+  "type": "original",
+  "genre": "Jungle",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/thin",
+   "download": "https://gaterush.me/4VshPk"
+  },
+  "seconds": 113,
+  "art": "art/sam-segan-thin.jpg"
+ },
+ {
+  "slug": "sam-segan-pump-it",
+  "title": "Pump It",
+  "date": "2026-04-07",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/pump-it",
+   "download": "https://hypeddit.com/segan/pumpit"
+  },
+  "seconds": 182,
+  "art": "art/sam-segan-pump-it.jpg"
+ },
+ {
+  "slug": "sound-barrier",
+  "title": "Segan x Gusta - Sound Barrier",
+  "date": "2026-03-20",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "spotify",
+  "links": {
+   "spotify": "https://open.spotify.com/track/02LuOOxacZ2mXlUeczvDK7"
+  },
+  "art": "art/sound-barrier.jpg"
+ },
+ {
+  "slug": "notsegan-okok",
+  "title": "Fred again.. - OK OK (Segan Edit)",
+  "date": "2026-02-15",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/okok",
+   "download": "https://hypeddit.com/segan/fredagainokokseganedit"
+  },
+  "seconds": 201,
+  "art": "art/notsegan-okok.png"
+ },
+ {
+  "slug": "sam-segan-dirty",
+  "title": "DIRTY",
+  "date": "2026-01-15",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/dirty",
+   "download": "https://hypeddit.com/segan/dirty"
+  },
+  "seconds": 148,
+  "art": "art/sam-segan-dirty.png"
+ },
+ {
+  "slug": "notsegan-chris-lake-skrillex-la-noche",
+  "title": "Chris Lake, Skrillex, ANITA B QUEEN - LA NOCHE (Segan Remix)",
+  "date": "2025-12-15",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/chris-lake-skrillex-la-noche",
+   "download": "https://hypeddit.com/segan/chrislakeskrillexanitabqueenlanocheseganremix"
+  },
+  "seconds": 209,
+  "art": "art/notsegan-chris-lake-skrillex-la-noche.jpg"
+ },
+ {
+  "slug": "sam-segan-feel",
+  "title": "FEELTHEBEAT",
+  "date": "2025-12-02",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/feel",
+   "download": "https://hypeddit.com/segan/feelthebeat"
+  },
+  "seconds": 133,
+  "art": "art/sam-segan-feel.png"
+ },
+ {
+  "slug": "sam-segan-original-don",
+  "title": "Sub Focus - Original Don (Segan Remix)",
+  "date": "2025-12-01",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/original-don",
+   "download": "https://hypeddit.com/segan/subfocusoriginaldonseganremix"
+  },
+  "seconds": 223,
+  "art": "art/sam-segan-original-don.png"
+ },
+ {
+  "slug": "sam-segan-look-up-look-out",
+  "title": "Look Up, Look Out",
+  "date": "2025-11-20",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/look-up-look-out",
+   "download": "https://hypeddit.com/segan/lookuplookout"
+  },
+  "seconds": 147,
+  "art": "art/sam-segan-look-up-look-out.png"
+ },
+ {
+  "slug": "sam-segan-your-life",
+  "title": "Your Life",
+  "date": "2025-11-20",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/your-life",
+   "download": "https://hypeddit.com/segan/yourlife"
+  },
+  "seconds": 202,
+  "art": "art/sam-segan-your-life.png"
+ },
+ {
+  "slug": "sam-segan-generational",
+  "title": "GENERATIONAL",
+  "date": "2025-10-20",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/generational",
+   "download": "https://hypeddit.com/segan/generational"
+  },
+  "seconds": 116,
+  "art": "art/sam-segan-generational.jpg"
+ },
+ {
+  "slug": "sam-segan-lostyamind",
+  "title": "LOST YA MIND",
+  "date": "2025-10-20",
+  "type": "original",
+  "genre": "House",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/lostyamind",
+   "download": "https://hypeddit.com/segan/lostyamind"
+  },
+  "seconds": 177,
+  "art": "art/sam-segan-lostyamind.jpg"
+ },
+ {
+  "slug": "sam-segan-same",
+  "title": "The Same",
+  "date": "2025-10-09",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/same",
+   "download": "https://hypeddit.com/segan/thesame"
+  },
+  "seconds": 186,
+  "art": "art/sam-segan-same.png"
+ },
+ {
+  "slug": "notsegan-hey",
+  "title": "HEYBOYHEYGIRL",
+  "date": "2025-10-03",
+  "type": "bootleg",
+  "genre": "House",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/hey",
+   "download": "https://hypeddit.com/segan/heyboyheygirlseganxthechemicalbrothers"
+  },
+  "seconds": 132,
+  "art": "art/notsegan-hey.jpg"
+ },
+ {
+  "slug": "notsegan-touch",
+  "title": "Everytime We Touch (Segan's Ambient Mix)",
+  "date": "2025-09-30",
+  "type": "remix",
+  "genre": "Ambient",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/touch",
+   "download": "https://hypeddit.com/segan/everytimewetouchsegansambientmix"
+  },
+  "seconds": 125,
+  "art": "art/notsegan-touch.jpg"
+ },
+ {
+  "slug": "notsegan-back2front",
+  "title": "BACK2FRONT",
+  "date": "2025-09-23",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/back2front",
+   "download": "https://hypeddit.com/segan/lemtomback2frontseganremix"
+  },
+  "seconds": 156,
+  "art": "art/notsegan-back2front.png"
+ },
+ {
+  "slug": "sam-segan-tempo",
+  "title": "TEMPO",
+  "date": "2025-09-18",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/tempo",
+   "download": "https://hypeddit.com/segan/tempo"
+  },
+  "seconds": 176,
+  "art": "art/sam-segan-tempo.png"
+ },
+ {
+  "slug": "shadow",
+  "title": "NGHTMRE, Segan & hayve - Shadow (feat. Crooked Bangs)",
+  "date": "2025-08-29",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "spotify",
+  "links": {
+   "spotify": "https://open.spotify.com/track/5cBGiXFf9S9RIAwQUv0g4g"
+  },
+  "art": "art/shadow.jpg"
+ },
+ {
+  "slug": "sam-segan-dnbmf",
+  "title": "DNBMF",
+  "date": "2025-08-07",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/dnbmf",
+   "download": "https://hypeddit.com/segan/dnbmf"
+  },
+  "seconds": 152,
+  "art": "art/sam-segan-dnbmf.jpg"
+ },
+ {
+  "slug": "sam-segan-kill-bill",
+  "title": "KILL BILL",
+  "date": "2025-07-14",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/kill-bill",
+   "download": "https://hypeddit.com/segan/killbill"
+  },
+  "seconds": 145,
+  "art": "art/sam-segan-kill-bill.jpg"
+ },
+ {
+  "slug": "notsegan-bassdownlow",
+  "title": "DEV - BASS DOWN LOW (Segan Remix)",
+  "date": "2025-07-07",
+  "type": "remix",
+  "genre": "House",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/bassdownlow",
+   "download": "https://hypeddit.com/segan/devbassdownlowseganremix"
+  },
+  "seconds": 151,
+  "art": "art/notsegan-bassdownlow.jpg"
+ },
+ {
+  "slug": "notsegan-deep-inside",
+  "title": "DEEP INSIDE",
+  "date": "2025-06-10",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/deep-inside",
+   "download": "https://hypeddit.com/segan/deepinside"
+  },
+  "seconds": 96,
+  "art": "art/notsegan-deep-inside.jpg"
+ },
+ {
+  "slug": "notsegan-wyha",
+  "title": "WHERE'S YOUR HEAD AT??",
+  "date": "2025-05-23",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/wyha",
+   "download": "https://hypeddit.com/segan/wheresyourheadat-1"
+  },
+  "seconds": 79,
+  "art": "art/notsegan-wyha.jpg"
+ },
+ {
+  "slug": "notsegan-bittersweet",
+  "title": "BITTERSWEET SYMPHONY (Segan's Jungle Edit)",
+  "date": "2025-04-13",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/bittersweet",
+   "download": "https://hypeddit.com/segansselects/bittersweetsymphonysegansjungleedit"
+  },
+  "seconds": 112,
+  "art": "art/notsegan-bittersweet.jpg"
+ },
+ {
+  "slug": "notsegan-messy-liquid",
+  "title": "Lola Young - Messy (Segan's Liquid D&B Remix)",
+  "date": "2025-03-30",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/messy-liquid",
+   "download": "https://hypeddit.com/segansselects/lolayoungmessysegansliquiddbremix"
+  },
+  "seconds": 102,
+  "art": "art/notsegan-messy-liquid.jpg"
+ },
+ {
+  "slug": "notsegan-tek",
+  "title": "TEKTEKTEK (Circles Segan Edit)",
+  "date": "2025-03-17",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/tek",
+   "download": "https://hypeddit.com/segansselects/tektektekcirclesseganedit"
+  },
+  "seconds": 88,
+  "art": "art/notsegan-tek.png"
+ },
+ {
+  "slug": "sam-segan-d2p",
+  "title": "DOWN TO POP (D2P)",
+  "date": "2025-02-27",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/d2p",
+   "download": "https://hypeddit.com/segan/downtopopd2p"
+  },
+  "seconds": 156,
+  "art": "art/sam-segan-d2p.png"
+ },
+ {
+  "slug": "notsegan-power",
+  "title": "POWER",
+  "date": "2025-02-12",
+  "type": "bootleg",
+  "genre": "Techno",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/power"
+  },
+  "seconds": 104,
+  "art": "art/notsegan-power.jpg"
+ },
+ {
+  "slug": "notsegan-hypnotized-remix",
+  "title": "Ellie Goulding, Anyma - Hypnotized (Segan Remix)",
+  "date": "2025-01-26",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/hypnotized-remix",
+   "download": "https://hypeddit.com/segansselects/elliegouldinganymahypnotizedseganremix-1"
+  },
+  "seconds": 167,
+  "art": "art/notsegan-hypnotized-remix.jpg"
+ },
+ {
+  "slug": "notsegan-jingle-hells",
+  "title": "JINGLE HELLS",
+  "date": "2024-12-25",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/jingle-hells",
+   "download": "https://hypeddit.com/segansselects/jinglehells"
+  },
+  "seconds": 28,
+  "art": "art/notsegan-jingle-hells.jpg"
+ },
+ {
+  "slug": "sam-segan-flow",
+  "title": "Bad Boi Flow",
+  "date": "2024-12-17",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/flow",
+   "download": "https://hypeddit.com/segan/seganbadboiflow"
+  },
+  "seconds": 137,
+  "art": "art/sam-segan-flow.png"
+ },
+ {
+  "slug": "notsegan-silence-dj-tiestos-in-search-of-sunrise-edit-segan-db-edit",
+  "title": "Silence - DJ Tiësto's In Search Of Sunrise Edit (Segan D&B Edit)",
+  "date": "2024-12-05",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/silence-dj-tiestos-in-search-of-sunrise-edit-segan-db-edit",
+   "download": "https://hypeddit.com/segansselects/silencedjtiestosinsearchofsunriseeditsegandbedit"
+  },
+  "seconds": 118,
+  "art": "art/notsegan-silence-dj-tiestos-in-search-of-sunrise-edit-segan-db-edit.jpg"
+ },
+ {
+  "slug": "sam-segan-the-dare-girls-segan-remix",
+  "title": "The Dare - Girls (Segan D&B Remix)",
+  "date": "2024-09-11",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/the-dare-girls-segan-remix",
+   "download": "https://hypeddit.com/segan/thedaregirlssegandbremix"
+  },
+  "seconds": 123,
+  "art": "art/sam-segan-the-dare-girls-segan-remix.jpg"
+ },
+ {
+  "slug": "notsegan-ghost",
+  "title": "Ghost",
+  "date": "2024-09-06",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/ghost"
+  },
+  "seconds": 81,
+  "art": "art/notsegan-ghost.jpg"
+ },
+ {
+  "slug": "notsegan-desire",
+  "title": "Chris Stussy - Desire (Segan Remix)",
+  "date": "2024-09-03",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/desire",
+   "download": "https://hypeddit.com/segansselects/chrisstussydesireseganremix"
+  },
+  "seconds": 102,
+  "art": "art/notsegan-desire.jpg"
+ },
+ {
+  "slug": "notsegan-segan-work",
+  "title": "WORK!",
+  "date": "2024-08-24",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/segan-work",
+   "download": "https://hypeddit.com/segansselects/seganwork"
+  },
+  "seconds": 170,
+  "art": "art/notsegan-segan-work.jpg"
+ },
+ {
+  "slug": "notsegan-stand-still",
+  "title": "Stand Still (High Contrast - If We Ever Redux)",
+  "date": "2024-08-19",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/stand-still",
+   "download": "https://hypeddit.com/segansselects/seganstandstillhighcontrastifweeverredux"
+  },
+  "seconds": 212,
+  "art": "art/notsegan-stand-still.jpg"
+ },
+ {
+  "slug": "notsegan-shake-it",
+  "title": "Metro Station - Shake It (Segan Remix)",
+  "date": "2024-08-12",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/shake-it",
+   "download": "https://hypeddit.com/segansselects/metrostationshakeitseganremix"
+  },
+  "seconds": 50,
+  "art": "art/notsegan-shake-it.jpg"
+ },
+ {
+  "slug": "notsegan-sexy-back-segan-edit",
+  "title": "Justin Timberlake - SexyBack (Segan Edit)",
+  "date": "2024-08-05",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/sexy-back-segan-edit",
+   "download": "https://hypeddit.com/segansselects/justintimberlakesexybackseganedit"
+  },
+  "seconds": 144,
+  "art": "art/notsegan-sexy-back-segan-edit.jpg"
+ },
+ {
+  "slug": "notsegan-parade",
+  "title": "Meet Her At The Love Parade (Segan vs. Da Hool 2024 Techno Edit)",
+  "date": "2024-07-29",
+  "type": "edit",
+  "genre": "Techno",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/parade",
+   "download": "https://hypeddit.com/segansselects/meetherattheloveparadeseganvsdahool2024technoedit"
+  },
+  "seconds": 182,
+  "art": "art/notsegan-parade.jpg"
+ },
+ {
+  "slug": "notsegan-temptation",
+  "title": "Temptation (Hackney Parrot Edit)",
+  "date": "2024-07-20",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/temptation",
+   "download": "https://hypeddit.com/segansselects/segantemptationhackneyparrotedit"
+  },
+  "seconds": 159,
+  "art": "art/notsegan-temptation.jpg"
+ },
+ {
+  "slug": "notsegan-knife-party-internet-friends-segan-edit",
+  "title": "Knife Party - Internet Friends (Segan Edit)",
+  "date": "2024-07-12",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/knife-party-internet-friends-segan-edit",
+   "download": "https://hypeddit.com/segansselects/knifepartyinternetfriendsseganedit"
+  },
+  "seconds": 52,
+  "art": "art/notsegan-knife-party-internet-friends-segan-edit.jpg"
+ },
+ {
+  "slug": "notsegan-vibe",
+  "title": "Axwell - Feel The Vibe (Segan Bootleg)",
+  "date": "2024-07-04",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/vibe",
+   "download": "https://hypeddit.com/segansselects/axwellfeelthevibeseganbootleg"
+  },
+  "seconds": 148,
+  "art": "art/notsegan-vibe.jpg"
+ },
+ {
+  "slug": "notsegan-feeling",
+  "title": "Massano - The Feeling (Segan Edit)",
+  "date": "2024-07-01",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/feeling",
+   "download": "https://hypeddit.com/segansselects/massanothefeelingseganedit"
+  },
+  "seconds": 121,
+  "art": "art/notsegan-feeling.jpg"
+ },
+ {
+  "slug": "notsegan-postman",
+  "title": "MR. POSTMAN",
+  "date": "2024-06-25",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/postman",
+   "download": "https://hypeddit.com/segansselects/mrpostman"
+  },
+  "seconds": 79,
+  "art": "art/notsegan-postman.jpg"
+ },
+ {
+  "slug": "notsegan-band4band",
+  "title": "Central Cee & Lil Baby - BAND4BAND (Segan Edit)",
+  "date": "2024-06-18",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/band4band",
+   "download": "https://hypeddit.com/segansselects/centralceelilbabyband4bandseganedit"
+  },
+  "seconds": 112,
+  "art": "art/notsegan-band4band.jpg"
+ },
+ {
+  "slug": "notsegan-else",
+  "title": "The 1975 - Somebody Else (Segan 2024 Edit)",
+  "date": "2024-06-09",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/else",
+   "download": "https://hypeddit.com/segansselects/the1975somebodyelsesegan2024edit"
+  },
+  "seconds": 157,
+  "art": "art/notsegan-else.jpg"
+ },
+ {
+  "slug": "sam-segan-mau-p-on-again-segan-remix-1",
+  "title": "Mau P - On Again (Segan Remix)",
+  "date": "2024-06-02",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/mau-p-on-again-segan-remix-1",
+   "download": "https://hypeddit.com/segan/mauponagainseganremix"
+  },
+  "seconds": 184,
+  "art": "art/sam-segan-mau-p-on-again-segan-remix-1.jpg"
+ },
+ {
+  "slug": "notsegan-hideaway",
+  "title": "Daya - Hide Away (Segan D&B Edit)",
+  "date": "2024-05-12",
+  "type": "edit",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/hideaway",
+   "download": "https://hypeddit.com/segansselects/dayahideawayseganedit"
+  },
+  "seconds": 127,
+  "art": "art/notsegan-hideaway.jpg"
+ },
+ {
+  "slug": "sam-segan-kissmeremix",
+  "title": "Artemas - I Like The Way You Kiss Me (Segan D&B Remix)",
+  "date": "2024-04-15",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/kissmeremix",
+   "download": "https://hypeddit.com/segan/artemasilikethewayyoukissmeseganremix"
+  },
+  "seconds": 179,
+  "art": "art/sam-segan-kissmeremix.jpg"
+ },
+ {
+  "slug": "sam-segan-insomnia",
+  "title": "Faithless - Insomnia (Segan Remix)",
+  "date": "2024-03-14",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/insomnia",
+   "download": "https://hypeddit.com/segan/faithlessinsomniaseganremix"
+  },
+  "seconds": 171,
+  "art": "art/sam-segan-insomnia.jpg"
+ },
+ {
+  "slug": "sam-segan-innocenceremix",
+  "title": "Nero - Innocence (Segan Remix)",
+  "date": "2024-02-22",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/innocenceremix",
+   "download": "https://hypeddit.com/segan/neroinnocenceseganremix"
+  },
+  "seconds": 226,
+  "art": "art/sam-segan-innocenceremix.jpg"
+ },
+ {
+  "slug": "sam-segan-youwereright",
+  "title": "Rüfüs Du Sol - You Were Right (Segan Remix)",
+  "date": "2024-01-14",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/youwereright",
+   "download": "https://hypeddit.com/segan/rfsdusolyouwererightseganremix"
+  },
+  "seconds": 187,
+  "art": "art/sam-segan-youwereright.jpg"
+ },
+ {
+  "slug": "sam-segan-eli-brown-diamonds-on-my-mind-segan-remix",
+  "title": "Eli Brown - Diamonds On My Mind (Segan Remix)",
+  "date": "2023-09-25",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/eli-brown-diamonds-on-my-mind-segan-remix",
+   "download": "https://hypeddit.com/segan/elibrowndiamondsonmymindseganremix"
+  },
+  "seconds": 173,
+  "art": "art/sam-segan-eli-brown-diamonds-on-my-mind-segan-remix.jpg"
+ },
+ {
+  "slug": "sam-segan-unknown",
+  "title": "Unknown",
+  "date": "2023-06-23",
+  "type": "original",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/unknown",
+   "download": "https://hypeddit.com/segan/unknown"
+  },
+  "seconds": 257,
+  "art": "art/sam-segan-unknown.jpg"
+ },
+ {
+  "slug": "sam-segan-noisia-mantra-segan-remix",
+  "title": "Noisia - Mantra (Segan Remix)",
+  "date": "2022-11-03",
+  "type": "remix",
+  "genre": "Drum & Bass",
+  "account": "main",
+  "links": {
+   "soundcloud": "https://soundcloud.com/sam-segan/noisia-mantra-segan-remix",
+   "download": "https://hypeddit.com/segan/noisiamantraseganremix"
+  },
+  "seconds": 173,
+  "art": "art/sam-segan-noisia-mantra-segan-remix.jpg"
+ },
+ {
+  "slug": "notsegan-drank",
+  "title": "Drank",
+  "date": "2020-09-13",
+  "type": "bootleg",
+  "genre": "futuregarage",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/drank",
+   "download": "https://hypeddit.com/segansselects/drank"
+  },
+  "seconds": 176,
+  "art": "art/notsegan-drank.jpg"
+ },
+ {
+  "slug": "notsegan-runnin",
+  "title": "Runnin",
+  "date": "2020-04-28",
+  "type": "bootleg",
+  "genre": "?",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/runnin"
+  },
+  "seconds": 63,
+  "art": "art/notsegan-runnin.jpg"
+ },
+ {
+  "slug": "notsegan-pizza",
+  "title": "Pizza",
+  "date": "2020-04-12",
+  "type": "bootleg",
+  "genre": "Deep House",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/pizza"
+  },
+  "seconds": 195,
+  "art": "art/notsegan-pizza.jpg"
+ },
+ {
+  "slug": "notsegan-thiefmechanism",
+  "title": "A Thief in the Mechanism",
+  "date": "2019-10-05",
+  "type": "bootleg",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/thiefmechanism"
+  },
+  "seconds": 182,
+  "art": "art/notsegan-thiefmechanism.jpg"
+ },
+ {
+  "slug": "notsegan-habstrakt-infinite-segan-flip",
+  "title": "Habstrakt - Infinite (segan flip)",
+  "date": "2019-07-22",
+  "type": "flip",
+  "genre": "Drum & Bass",
+  "account": "selects",
+  "links": {
+   "soundcloud": "https://soundcloud.com/notsegan/habstrakt-infinite-segan-flip"
+  },
+  "seconds": 169,
+  "art": "art/notsegan-habstrakt-infinite-segan-flip.jpg"
+ }
+]
