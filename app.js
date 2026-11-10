@@ -471,7 +471,6 @@
     const groups = { all: () => true, original: (r) => r.type === 'original', flip: (r) => r.type !== 'original' };
     let filter = 'all', open = false;
     document.querySelectorAll('.filters button').forEach((b) => {
-      $('i', b).textContent = all.filter(groups[b.dataset.filter]).length;
       b.addEventListener('click', () => {
         filter = b.dataset.filter;
         document.querySelectorAll('.filters button').forEach((o) => o.setAttribute('aria-pressed', o === b));
@@ -505,7 +504,7 @@
         box.append(li);
       }
       more.hidden = rows.length <= FIRST;
-      more.textContent = open ? 'Show fewer ↑' : `Show all ${rows.length} ↓`;
+      more.textContent = open ? 'Show fewer ↑' : 'Show all ↓';
     }
     draw();
   }
@@ -620,9 +619,6 @@
     const all = await (await fetch('releases.json')).json();
     const [first, ...rest] = all;
     heroNew(first);
-    $('#hero-count').textContent = `${all.length} releases`;
-    const originals = all.filter((r) => r.type === 'original').length;
-    $('#about-count').textContent = `${originals} originals, ${all.length - originals} edits and bootlegs`;
     feature(first);
     also(rest.slice(0, 3));
     list(all);
