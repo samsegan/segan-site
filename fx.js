@@ -35,7 +35,7 @@ varying vec2 vUv;
 uniform sampler2D uSrc, uGrid, uPhoto;
 uniform vec2 uRes, uCells, uDrift;
 uniform vec4 uFit;        // the part of the photo that fills the canvas: size xy, corner xy (corner y < 0: the photo starts lower down)
-uniform float uMosaic, uBarrel, uTime, uMark, uDpr, uMode, uBack, uHeat, uShard, uLit;
+uniform float uMosaic, uBarrel, uTime, uMark, uDpr, uMode, uBack, uHeat, uShard, uLit, uAmt, uChrome;
 uniform vec3 uBg;
 
 vec2 w;                   // this pixel, bent a little as the page scrolls away
@@ -143,6 +143,7 @@ void main() {
 
   vec3 col, a;
   vec2 smear = vec2(0.);
+  float on = 0.;            // streak: how far this pixel is into the smear (0 = untouched)
   if (uMode < .5) {
     vec4 sr = blocks(w, 1.), sg = blocks(w, .84), sb = blocks(w, .68);
     col = vec3(sr.r, sg.g, sb.b);
@@ -153,12 +154,13 @@ void main() {
     float heat = clamp(max(g.b, uHeat), 0., 1.);
     vec2 np = w / uDpr * .0045;
     vec2 flow = vec2(fbm(np + vec2(0., uTime * .11)), fbm(np + vec2(5.2, -uTime * .13))) - .5;
-    fetch(dv * cs * 2.4 + flow * heat * 90. * uDpr, col, a);
+    // uChrome: how far the picture flows and how much of it turns to metal (1 = the old, full melt)
+    fetch((dv * cs * 2.4 + flow * heat * 90. * uDpr) * uChrome, col, a);
     float lum = dot(col, vec3(.3, .5, .2)) / max(a.g, .0001);
     float band = .5 + .5 * cos(lum * 13. + flow.x * 9. + flow.y * 5. + heat * 2.);
     vec3 chrome = mix(vec3(.03, .05, .07), vec3(.93, .97, 1.), smoothstep(.1, .9, band));
     chrome += pow(band, 18.) * .5;
-    col = mix(col, chrome * a, smoothstep(.04, .55, heat));
+    col = mix(col, chrome * a, smoothstep(.04, .55, heat) * min(uChrome, 1.));
   } else if (uMode < 2.5) {
     vec4 g = texture2D(uGrid, w / uRes);
     if (uHeat <= 0. && g.b < .002 && length(g.rg - .5) < .006) {
@@ -187,11 +189,14 @@ void main() {
     vec4 g = texture2D(uGrid, w / uRes);
     vec2 dv = (g.rg - .5) * 2. + uDrift;
     float len = length(dv);
+    // The smear fades in from nothing. A hard start left a brighter round
+    // patch, with an edge, wherever the pointer had been.
+    on = smoothstep(.02, .3, len);
     vec3 sharp, sa;
     fetch(vec2(0.), sharp, sa);
-    if (len < .01) { col = sharp; a = sa; }
+    if (on <= 0.) { col = sharp; a = sa; }
     else {
-      vec2 stepv = dv * cs * .62;
+      vec2 stepv = dv * cs * .62 * uAmt * on;
       smear = stepv;
       float jit = hash(frag + 3.3);
       vec3 acc = vec3(0.), far = vec3(0.), aa = vec3(0.), tc, ta;
@@ -205,10 +210,10 @@ void main() {
       acc /= sum; aa /= sum; far /= fsum;
       // only the brightest stone leaves a cold blue tail, like lights in a long exposure
       float hot = pow(dot(far, vec3(.34)), 3.) * smoothstep(.04, .5, len);
-      vec3 trail = acc * 1.1 + hot * vec3(.3, .72, 1.3) * .7;
-      float keep = 1. - smoothstep(.1, .8, len) * .5;          // the sharp picture thins out as it smears
-      col = max(sharp * keep, trail);
-      a = clamp(max(sa * keep, aa * 1.45), 0., 1.);
+      vec3 trail = acc * (1. + .1 * uAmt) + hot * vec3(.3, .72, 1.3) * .7 * uAmt;
+      float keep = 1. - smoothstep(.1, .8, len) * .5 * uAmt;   // the sharp picture thins out as it smears
+      col = mix(sharp, max(sharp * keep, trail), on);
+      a = mix(sa, clamp(max(sa * keep, aa * (1. + .45 * uAmt)), 0., 1.), on);
     }
   }
 
@@ -222,11 +227,11 @@ void main() {
     float light;
     if (uBack > 1.5) {
       vec3 ph = photo(w);
-      if (dot(smear, smear) > 0.) {                            // streak: the lights in the picture drag too
+      if (on > 0.) {                                           // streak: the lights in the picture drag too
         vec3 acc = vec3(0.);
         float jit = hash(frag + 7.1);
         for (int i = 0; i < 6; i++) acc += photo(w - smear * (float(i) + jit) * 2.2);
-        ph = max(ph, acc / 6. * 1.12);
+        ph = mix(ph, max(ph, acc / 6. * (1. + .12 * uAmt)), on);
       }
       float fade = smoothstep(0., .2, 1. - vUv.y) * (.62 + .38 * smoothstep(0., .13, vUv.y));
       fade *= smoothstep(0., .07, w.y / uRes.y * uFit.y + uFit.w);   // nothing above the photo's top edge
@@ -270,7 +275,8 @@ void main() {
       this.canvas = canvas;
       this.host = host;
       this.o = Object.assign({ mark: false, cell: 30, idle: false }, opts);
-      this.fx = { mode: 'pixels', back: 'black' };
+      // amount: how strong the streak is. chrome: how strong the chrome is. For both, 1 = the old look.
+      this.fx = { mode: 'pixels', back: 'black', amount: .6, chrome: .4 };
       const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
       if (!gl) { this.dead = true; return; }
       this.gl = gl;
@@ -284,7 +290,7 @@ void main() {
       gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
       this.u = {};
       for (const n of ['uSrc', 'uGrid', 'uPhoto', 'uFit', 'uRes', 'uCells', 'uDrift',
-        'uMosaic', 'uBarrel', 'uTime', 'uMark', 'uDpr', 'uMode', 'uBack', 'uHeat', 'uShard', 'uLit', 'uBg']) {
+        'uMosaic', 'uBarrel', 'uTime', 'uMark', 'uDpr', 'uMode', 'uBack', 'uHeat', 'uShard', 'uLit', 'uAmt', 'uChrome', 'uBg']) {
         this.u[n] = gl.getUniformLocation(this.prog, n);
       }
       this.srcTex = this.texture();
@@ -443,9 +449,9 @@ void main() {
       const gliding = Math.abs(tx - this.light.x) + Math.abs(ty - this.light.y) > .5;
 
       // the grid: settle, then take a push from whatever moved
-      const decay = Math.exp(-dt * (mode === 3 ? 3.2 : 4.2)), cool = Math.exp(-dt * 1.15);
+      const decay = Math.exp(-dt * (mode === 3 ? 4 : 4.2)), cool = Math.exp(-dt * 1.15);
       const hot = mode === 1 || mode === 2;
-      let energy = 0;
+      let energy = 0, peak = 0;
       for (let i = 0; i < this.vx.length; i++) {
         this.vx[i] *= decay;
         this.vy[i] *= decay;
@@ -457,7 +463,9 @@ void main() {
           const dx = (p.x - p.lx) / cell, dy = (p.y - p.ly) / cell;
           this.push(p.x / cell, p.y / cell, dx, dy, 4.6, .34, dt * 1.5 + Math.hypot(dx, dy) * .1);
         } else if (idle) {
-          this.push(this.light.x / cell, this.light.y / cell,
+          // streak: nothing wanders on its own. The drifting point left a round
+          // smudge crawling over the letters after the pointer had stopped.
+          if (mode !== 3) this.push(this.light.x / cell, this.light.y / cell,
             (this.light.x - px) / cell, (this.light.y - py) / cell, 4, .6, dt * 1.1);
           if (t > this.nextGust) {            // a short sideways jolt across the letters
             this.nextGust = t + 2.4 + Math.random() * 3.2;
@@ -480,6 +488,7 @@ void main() {
         const m = Math.hypot(this.vx[i], this.vy[i]);
         const s = m > 1 ? 1 / m : 1;
         this.vx[i] *= s; this.vy[i] *= s;
+        peak = Math.max(peak, m);
         this.bytes[i * 4] = 127.5 + this.vx[i] * 127.5;
         this.bytes[i * 4 + 1] = 127.5 + this.vy[i] * 127.5;
         this.bytes[i * 4 + 2] = this.heat[i] * 255;
@@ -539,11 +548,13 @@ void main() {
       gl.uniform1i(u.uPhoto, 2);
       gl.uniform1f(u.uBack, back);
       gl.uniform1f(u.uHeat, floor);
+      gl.uniform1f(u.uAmt, this.fx.amount);
+      gl.uniform1f(u.uChrome, this.fx.chrome);
       gl.uniform1f(u.uShard, cell * 1.5 * d);
       gl.uniform3fv(u.uBg, this.bg);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-      const moving = idle || pointing || running || gliding || energy > .02;
+      const moving = idle || pointing || running || gliding || energy > .02 || peak > .004;
       if (moving && this.visible && !document.hidden) this.wake();
     }
   }

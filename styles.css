@@ -69,6 +69,9 @@ ol, ul { list-style: none; }
   transition: background .2s, border-color .2s;
 }
 .scrolled .top { background: rgba(6, 8, 11, .9); backdrop-filter: blur(10px); border-bottom-color: var(--line); text-shadow: none; }
+/* phones draw the page behind the status bar too: the bar's black carries on up there */
+.top::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 200px; background: var(--bg); opacity: 0; transition: opacity .2s; pointer-events: none; }
+.scrolled .top::before { opacity: 1; }
 /* the small logo stays away while the big one is on screen */
 /* the sections sit in the middle of the bar. The small logo keeps to the left,
    and stays away while the big one is on screen */
@@ -79,7 +82,6 @@ ol, ul { list-style: none; }
 .top-nav { display: flex; align-items: baseline; gap: clamp(20px, 3.4vw, 52px); font-size: calc(13px * var(--ts)); letter-spacing: .13em; }
 .top a { padding: 6px 0; transition: color .15s; }
 .top-nav a:hover { color: var(--accent); }
-.top-list { border-bottom: 1px solid currentColor; }
 
 /* ---------- hero ---------- */
 .hero { position: relative; height: 100svh; min-height: 520px; overflow: hidden; }
@@ -143,52 +145,118 @@ section { padding: 0 var(--pad); }
 .btn-solid { background: var(--accent); border-color: var(--accent); color: var(--on); font-weight: 500; }
 .btn-solid:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 
-/* ---------- new ---------- */
-.new { padding-top: clamp(40px, 7vw, 96px); }
-.feature {
-  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(24px, 4.5vw, 72px); align-items: end;
-  padding: clamp(22px, 3vw, 40px) 0 0;
-}
-.cover { position: relative; aspect-ratio: 1; background: #0b0f14; overflow: hidden; }
+/* ---------- phones: the link page (shown in the small-screens block) ---------- */
+.bio { display: none; }
+
+/* ---------- the second screen: next + latest ---------- */
+/* From here to the contact block the type is one tight grotesque, set large,
+   in sentence case, with numbers in brackets. */
+.now, .deck { --deck: "Archivo", "Helvetica Neue", Arial, sans-serif; font: 500 14px/1.25 var(--deck); letter-spacing: -.01em; }
+.cover { position: relative; display: block; aspect-ratio: 1; background: #0b0f14; overflow: hidden; }
 .cover img, .cover canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.feature-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; color: var(--mute); text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts)); }
-.feature-by { font: 600 calc(clamp(18px, 2vw, 28px) * var(--hs))/1 var(--head); text-transform: uppercase; letter-spacing: .02em; color: var(--mute); margin: 26px 0 8px; }
-.feature-title { font: 700 calc(clamp(54px, 9.4vw, 152px) * var(--hs))/var(--lh) var(--head); text-transform: uppercase; letter-spacing: -.012em; margin-left: -.04em; text-wrap: balance; }
-.feature-suffix { font: 600 calc(clamp(18px, 2vw, 28px) * var(--hs))/1 var(--head); text-transform: uppercase; letter-spacing: .02em; color: var(--accent); margin-top: 12px; }
-.feature-note { color: var(--mute); margin-top: 22px; font-size: calc(13px * var(--ts)); }
-.feature-note::before { content: "“"; } .feature-note::after { content: "”"; }
-.feature-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-
-.also { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 36px); padding: clamp(36px, 5vw, 72px) 0 0; }
-.card { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: center; text-align: left; border-top: 1px solid var(--line); padding-top: 16px; }
-.card .cover { width: 96px; }
-.card-meta { color: var(--mute); text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts)); display: flex; gap: 10px; align-items: center; }
-.card-title { font: 700 calc(clamp(22px, 2.3vw, 34px) * var(--hs))/1.02 var(--head); text-transform: uppercase; margin-top: 8px; overflow-wrap: anywhere; }
-.card-by { color: var(--mute); font: 500 15px/1.1 var(--head); text-transform: uppercase; letter-spacing: .03em; margin-top: 4px; }
-.card:hover .card-title { color: var(--accent); }
-
-/* ---------- releases ---------- */
-.releases { padding-top: clamp(64px, 9vw, 140px); }
-.filters { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-.filters button { text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts)); padding: 3px 9px; border: 1px solid transparent; color: var(--mute); }
-.filters button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
-.list { margin-top: 18px; }
-.row {
-  display: grid; grid-template-columns: 74px 44px minmax(0, 1fr) 96px 130px 150px; gap: 18px; align-items: center;
-  padding: 9px 0; border-bottom: 1px solid var(--line);
-  color: var(--mute); text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts));
+.now {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 4.5vw, 80px);
+  min-height: 100svh; padding-top: 92px; padding-bottom: clamp(28px, 4vw, 56px);
 }
-.row-year { grid-column: 1 / -1; display: block; padding: 26px 0 8px; color: var(--dim); border-bottom: 1px solid var(--line); text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts)); }
-.row img { width: 44px; height: 44px; object-fit: cover; background: #0b0f14; }
-.row-title { font: 600 calc(clamp(19px, 1.75vw, 25px) * var(--hs))/1.15 var(--head); letter-spacing: .01em; text-transform: uppercase; color: var(--ink); text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.row-title small { font: inherit; color: var(--mute); }
-.row:hover .row-title { color: var(--accent); }
-.row-links { display: flex; gap: 16px; justify-content: flex-start; white-space: nowrap; color: var(--ink); }
-.row-links a:hover, .row-links button:hover { color: var(--accent); }
-.row-links button { text-transform: inherit; letter-spacing: inherit; }
-.more { display: block; width: 100%; padding: 18px 0; border-bottom: 1px solid var(--line); text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts)); color: var(--ink); text-align: left; }
-.more:hover { color: var(--accent); }
+.now.solo { grid-template-columns: minmax(0, 1fr); }
+.now article { display: flex; flex-direction: column; min-width: 0; }
+.now article[hidden] { display: none; }
+.now-rule { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-top: 12px; color: var(--ink); }
+.now-rule i { font-style: normal; color: var(--mute); }
+.now-rule b { font-weight: 500; }
+.now-rule span:last-child { color: var(--mute); font-variant-numeric: tabular-nums; }
+.now-body { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 24px; }
+.now-cover { flex: none; width: var(--cw); box-shadow: 0 40px 80px -30px #000; }
+.now-next { --cw: min(100%, 50svh, 600px); }
+.now-last { --cw: min(72%, 36svh, 380px); }
+.now-title { font: 600 clamp(34px, 4.4vw, 72px)/1 var(--deck); letter-spacing: -.045em; margin: 18px 0 0 -.04em; text-wrap: balance; }
+/* the next release's name: as wide as its column, laid over the foot of its cover.
+   It takes the opposite of whatever is under it, like a slide over a projector. */
+.now-next .now-title {
+  position: relative; z-index: 1;
+  font-size: clamp(88px, calc(64vw / var(--len, 3)), 330px); font-weight: 700; line-height: .78; letter-spacing: -.06em;
+  margin: -.5em 0 0 -.05em; white-space: nowrap;
+  color: #fff; mix-blend-mode: difference; pointer-events: none;
+}
+.now-by { color: var(--mute); font: 500 clamp(15px, 1.4vw, 20px)/1.2 var(--deck); letter-spacing: -.02em; margin-top: 20px; }
+.now-by + .now-title { margin-top: 6px; }
+/* the countdown stands beside the cover, level with its top edge */
+.now-stage { display: flex; align-items: flex-start; gap: clamp(20px, 2.6vw, 44px); }
+.count { display: flex; gap: clamp(16px, 2vw, 32px); }
+.count[hidden] { display: none; }
+.count b { display: block; font: 600 clamp(30px, 3.4vw, 54px)/.9 var(--deck); letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.count b.tick { animation: tick .32s cubic-bezier(.2, .8, .2, 1); }
+@keyframes tick { from { transform: translateY(42%); opacity: 0; } }
+.count i { display: block; font-style: normal; color: var(--mute); margin-top: 6px; }
+.now-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(18px, 2vw, 28px); }
+.now .btn { font: 500 14px/1 var(--deck); letter-spacing: -.01em; text-transform: none; padding: 13px 18px; }
+
+/* ---------- every release: the wheel and the list ---------- */
+.deck { position: relative; padding: 0; margin-top: clamp(36px, 6vw, 96px); }
+/* isolate: what is stacked inside stays under the top bar and the player */
+.deck-pin { position: relative; isolation: isolate; height: 100svh; min-height: 480px; overflow: hidden; background: var(--bg); touch-action: pan-y; -webkit-user-select: none; user-select: none; }
+.deck-pin.dragging { cursor: grabbing; }
+.deck button { font: inherit; letter-spacing: inherit; }
+/* the name, far too big, sliding behind everything */
+.deck-letters { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.deck-letters span { position: absolute; left: 0; top: 52%; white-space: pre; font: 900 128svh/.8 var(--deck); font-stretch: 125%; letter-spacing: -.05em; color: #0c1015; will-change: transform; transform: translate3d(0, -50%, 0); }
+/* the light the cover in front throws on the room: the cover itself, tiny, blurred and blown up */
+.deck-glow { position: absolute; z-index: 1; left: 50%; top: var(--cy, 43%); width: 0; height: 0; pointer-events: none; }
+.deck-glow img { position: absolute; left: -32px; top: -32px; width: 64px; height: 64px; max-width: none; border-radius: 50%; filter: blur(7px) saturate(1.6); transform: scale(15); opacity: 0; transition: opacity .7s ease; }
+.deck-glow img.on { opacity: .42; }
+.deck-bar { position: absolute; top: 86px; left: var(--pad); right: var(--pad); z-index: 6; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.deck-views, .deck-years, .deck-foot { color: var(--dim); }
+.deck-views button[aria-pressed="true"], .deck .filters button[aria-pressed="true"], .deck-years button.on { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.deck-views button:hover, .deck .filters button:hover, .deck-years button:hover, .deck-skip:hover { color: var(--ink); }
+.filters { display: flex; gap: 16px; }
+.deck .filters button { color: var(--dim); white-space: nowrap; }
+.deck-day, .deck-year, .deck-col { font: 600 clamp(34px, 4.6vw, 78px)/1.03 var(--deck); letter-spacing: -.045em; }
+.deck-day, .deck-year { position: absolute; top: 19%; z-index: 5; font-variant-numeric: tabular-nums; pointer-events: none; }
+.deck-day { left: var(--pad); }
+.deck-year { right: var(--pad); }
+/* artist, then title, over the covers: white where the room is dark, the opposite of the art where it crosses a cover */
+.deck-col { position: absolute; left: 25.5%; top: 19%; width: min(47%, 800px); z-index: 60; color: #fff; mix-blend-mode: difference; pointer-events: none; }
+.deck-col.long { font-size: clamp(28px, 3.5vw, 58px); }
+.deck-col.xlong { font-size: clamp(24px, 2.7vw, 44px); }
+.rise { display: block; overflow: hidden; padding-bottom: .09em; margin-bottom: -.09em; }
+.rise > span { display: block; animation: rise .5s cubic-bezier(.2, .8, .2, 1) both; }
+.deck-col[data-dir="-1"] .rise > span { animation-name: fall; }
+@keyframes rise { from { transform: translateY(105%); } }
+@keyframes fall { from { transform: translateY(-105%); } }
+.deck-suf { font-size: .3em; letter-spacing: -.01em; line-height: 1.3; margin-top: .7em; }
+.deck-next { position: absolute; left: 25.5%; top: 72%; width: min(47%, 800px); z-index: 1; color: #323944; font: 600 clamp(28px, 3.7vw, 62px)/1.03 var(--deck); letter-spacing: -.045em; pointer-events: none; }
+.deck-next span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wheel { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.wcard { position: absolute; left: 0; top: 0; width: var(--card, 240px); height: var(--card, 240px); display: none; pointer-events: auto; background: #0b0f14; box-shadow: 0 34px 70px -24px #000; will-change: transform; cursor: pointer; }
+.wcard.vis { display: block; }
+.wcard img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.wcard i { position: absolute; inset: 0; background: var(--bg); pointer-events: none; }
+.wcard.on:hover::before { content: ""; position: absolute; z-index: 1; left: 12px; bottom: 12px; width: 42px; height: 42px; background: var(--accent); }
+.wcard.on:hover::after { content: ""; position: absolute; z-index: 1; left: 28px; bottom: 23px; border: 10px solid transparent; border-left: 14px solid var(--bg); border-right: 0; }
+.dragging .wcard { cursor: grabbing; }
+.deck-act { position: absolute; left: 50%; top: calc(var(--cy, 43%) + var(--card, 240px) / 2 + 24px); transform: translateX(-50%); z-index: 6; display: flex; gap: 6px 18px; white-space: nowrap; }
+.deck-act span { color: var(--mute); }
+.deck-act a, .deck-act button { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.deck-act a:hover, .deck-act button:hover { color: var(--accent); }
+/* the list: the same scroll runs down the titles, the cover sits in the corner */
+.deck-rows { display: none; position: absolute; left: 25.5%; right: calc(var(--pad) + clamp(210px, 22vw, 340px)); top: 50%; bottom: 60px; z-index: 4; overflow-y: auto; scrollbar-width: none; padding: 72px 0 40%; -webkit-mask: linear-gradient(transparent, #000 14%, #000 70%, transparent); mask: linear-gradient(transparent, #000 14%, #000 70%, transparent); }
+.deck-rows::-webkit-scrollbar { display: none; }
+.drow button { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) 84px; gap: 22px; width: 100%; text-align: left; font-size: 15px; line-height: 24px; color: #47505c; white-space: nowrap; transition: color .12s; }
+.drow span { overflow: hidden; text-overflow: ellipsis; }
+.drow small { font: inherit; opacity: .6; }
+.drow-date { text-align: right; font-variant-numeric: tabular-nums; }
+.drow button:hover { color: #b4bcc8; }
+.drow.on button { color: var(--ink); }
+.deck-cover { display: none; position: absolute; right: var(--pad); bottom: 60px; z-index: 4; width: clamp(180px, 20vw, 310px); aspect-ratio: 1; background: #0b0f14; box-shadow: 0 34px 70px -24px #000; }
+.deck-cover canvas { width: 100%; height: 100%; image-rendering: pixelated; }
+.view-list .wheel, .view-list .deck-next { display: none; }
+.view-list .deck-rows, .view-list .deck-cover { display: block; }
+.view-list .deck-act { left: var(--pad); top: 50%; transform: none; flex-direction: column; align-items: flex-start; padding-top: 3px; }
+.view-list .deck-glow { left: auto; top: auto; right: calc(var(--pad) + clamp(90px, 10vw, 155px)); bottom: calc(60px + clamp(90px, 10vw, 155px)); }
+.deck-foot { position: absolute; left: var(--pad); right: var(--pad); bottom: 18px; z-index: 6; display: flex; align-items: baseline; gap: 22px; white-space: nowrap; }
+.deck-years { display: flex; gap: 14px; margin-right: auto; font-variant-numeric: tabular-nums; }
+.deck-skip { color: var(--mute); }
+.deck-line { position: absolute; left: 0; bottom: 0; z-index: 6; width: 100%; height: 2px; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
 
 /* ---------- contact ---------- */
 .contact { padding-top: clamp(64px, 9vw, 140px); }
@@ -199,13 +267,12 @@ section { padding: 0 var(--pad); }
 .contact-grid a:hover { color: var(--accent); }
 .links { display: flex; flex-wrap: wrap; gap: 4px clamp(18px, 2.6vw, 40px); padding-top: clamp(40px, 6vw, 88px); }
 .links a { display: inline-block; font: 700 calc(clamp(30px, 4.6vw, 70px) * var(--hs))/1.08 var(--head); text-transform: uppercase; }
-.links a::after { content: "↗"; font: 400 .34em/1 var(--mono); color: var(--accent); vertical-align: top; margin-left: .25em; }
+.links a::after { content: "↗\FE0E"; font: 400 .34em/1 var(--mono); color: var(--accent); vertical-align: top; margin-left: .25em; }
 .links a:hover { color: var(--accent); }
 
 /* ---------- join + foot ---------- */
 .join { margin-top: clamp(64px, 9vw, 140px); padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .join h2 { font: 700 calc(clamp(48px, 8vw, 128px) * var(--hs))/var(--lh) var(--head); text-transform: uppercase; }
-.join p { color: var(--mute); margin-top: 10px; font-size: calc(15px * var(--ts)); }
 .join-btn {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   margin-top: clamp(22px, 3vw, 40px); padding: clamp(14px, 2vw, 30px) clamp(18px, 2.6vw, 40px);
@@ -285,11 +352,6 @@ html.type-classic :is(.feature-title, .big, .links a, .hero-new-title) {
 }
 html:not(.type-clean) body::after { content: ""; position: fixed; inset: 0; z-index: 40; pointer-events: none; background: var(--noise); }
 
-/* ---------- hover cover (desktop) ---------- */
-.peek { position: fixed; left: 0; top: 0; width: 260px; height: 260px; pointer-events: none; z-index: 15; opacity: 0; transition: opacity .12s; }
-.peek.on { opacity: 1; }
-.peek canvas { width: 100%; height: 100%; image-rendering: pixelated; }
-
 /* ---------- player ---------- */
 .dock {
   position: fixed; inset: auto 0 0 0; z-index: 30;
@@ -299,6 +361,8 @@ html:not(.type-clean) body::after { content: ""; position: fixed; inset: 0; z-in
   text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts));
 }
 .dock[hidden] { display: none; }
+/* and behind the browser's bottom bar: the player's black carries on down there */
+.dock::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 200px; background: var(--bg); pointer-events: none; }
 .dock-play { width: 36px; height: 36px; border: 1px solid var(--ink); position: relative; }
 .dock-play::before { content: ""; position: absolute; inset: 11px 12px; border-left: 4px solid var(--ink); border-right: 4px solid var(--ink); }
 .dock-play.paused::before { inset: 10px 11px 10px 14px; border: 8px solid transparent; border-left: 11px solid var(--ink); border-right: 0; }
@@ -314,31 +378,32 @@ html:not(.type-clean) body::after { content: ""; position: fixed; inset: 0; z-in
 .dock-out:hover { background: var(--ink); color: var(--bg); }
 .dock-close:hover { color: var(--accent); }
 .dock-close { font-size: 18px; line-height: 1; padding: 4px 6px; }
-.sc-frame { position: fixed; left: -9999px; bottom: 0; width: 320px; height: 166px; border: 0; }
+/* SoundCloud's own player: off screen while our dock drives it, slid up above the dock
+   when a browser refuses the autoplay and wants a click inside it (app.js, needTap) */
+.sc-tap { position: fixed; left: -9999px; bottom: 0; z-index: 30; width: 320px; background: var(--bg); border-top: 1px solid var(--line); }
+.sc-tap.on { left: 0; right: 0; width: auto; }
+.sc-tap p { margin: 0; padding: 10px 16px 8px; color: var(--mute); }
+/* 74px: just SoundCloud's play button and the song's name */
+.sc-frame { display: block; width: 100%; height: 74px; border: 0; }
+#dock-time { white-space: nowrap; }
 
-/* ---------- options: a tab on the right edge, a panel that slides in ---------- */
-.opt-tab {
-  position: fixed; right: 0; top: 50%; z-index: 25; transform: translateY(-50%);
-  writing-mode: vertical-rl; padding: 14px 7px 14px 8px;
-  background: rgba(6, 8, 11, .84); backdrop-filter: blur(8px);
-  border: 1px solid var(--line); border-right: 0;
-  text-transform: uppercase; letter-spacing: .16em; font-size: calc(10px * var(--ts)); color: var(--ink);
-  transition: right .25s ease, color .15s;
-}
-.opt-tab::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-bottom: 9px; background: var(--accent); }
+/* ---------- options: a word in the hero's bottom left corner (opposite New York, and it
+   scrolls away with the hero), a panel that slides in from the left ---------- */
+.opt-tab { text-transform: inherit; letter-spacing: inherit; color: #b3bac6; white-space: nowrap; transition: color .15s; }
+.opt-open .opt-tab { color: var(--accent); }
+.opt-tab::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 9px; vertical-align: .08em; background: var(--accent); }
 .opt-tab:hover { color: var(--accent); }
 .opt-tab[hidden] { display: none; }
 .opt {
-  position: fixed; inset: 0 0 0 auto; z-index: 35; width: min(312px, 88vw);
+  position: fixed; inset: 0 auto 0 0; z-index: 35; width: min(312px, 88vw);
   display: flex; flex-direction: column;
   padding: 18px 22px 22px; overflow-y: auto;
   background: rgba(6, 8, 11, .93); backdrop-filter: blur(14px);
-  border-left: 1px solid var(--line);
-  transform: translateX(100%); visibility: hidden;
+  border-right: 1px solid var(--line);
+  transform: translateX(-100%); visibility: hidden;
   transition: transform .25s ease, visibility .25s;
 }
 .opt-open .opt { transform: none; visibility: visible; }
-.opt-open .opt-tab { right: min(312px, 88vw); color: var(--accent); }
 .opt-head { display: flex; align-items: center; justify-content: space-between; text-transform: uppercase; letter-spacing: .09em; font-size: calc(11px * var(--ts)); }
 .opt-head h2 { font: inherit; }
 .opt-head h2::before { content: "/ "; color: var(--accent); }
@@ -370,39 +435,77 @@ html:not(.type-clean) body::after { content: ""; position: fixed; inset: 0; z-in
   .past .top-logo, .on-about .top-logo { max-height: 30px; margin-bottom: 6px; }
   .top-nav { gap: clamp(14px, 5vw, 26px); font-size: calc(12px * var(--ts)); letter-spacing: .11em; }
   .top-list { display: none; }
-  .hero-foot { flex-direction: column; align-items: stretch; gap: 14px; padding-bottom: 18px; }
+  .hero-foot { justify-content: flex-end; }
   .hero-where { text-align: left; order: 2; }
   .hero-new { align-items: flex-start; }
   .hero-new-cover { width: 96px; }
   .hero-new-title { font-size: calc(clamp(34px, 11vw, 52px) * var(--hs)); margin-top: 8px; }
   .hero-new-actions { margin-top: 12px; }
   .hero-new-actions .btn { padding: 10px 13px; }
-  .hero-new-actions a[href="#new"] { display: none; }
-  .feature { grid-template-columns: 1fr; align-items: start; }
-  .also { grid-template-columns: 1fr; gap: 0; }
-  .card { grid-template-columns: 72px minmax(0, 1fr); padding: 14px 0; }
-  .card .cover { width: 72px; }
-  .releases .rule { flex-wrap: wrap; }
-  .rule h2 { white-space: nowrap; }
-  .filters { width: 100%; justify-content: flex-start; flex-wrap: nowrap; gap: 2px; margin: 8px 0 0 -9px; }
-  .filters button { letter-spacing: .06em; white-space: nowrap; }
-  .row-title { white-space: normal; }
-  .row { grid-template-columns: 44px minmax(0, 1fr) auto; gap: 12px; }
-  .row-date, .row-genre { display: none; }
-  .row-type { grid-column: 2; grid-row: 2; justify-self: start; margin-top: -4px; }
-  .row img { grid-row: 1 / span 2; }
-  .row-links { grid-row: 1 / span 2; grid-column: 3; gap: 12px; justify-content: flex-end; }
-  .row-links .row-dl span { display: none; }
+  /* the first screen is the links: wordmark over the top of the containers, then every link, most important first */
+  .hero, .now, .top-nav a[href="#new"] { display: none; }
+  .bio { --deck: "Archivo", "Helvetica Neue", Arial, sans-serif; display: block; position: relative; padding-top: 78px; padding-bottom: 34px; font: 500 14px/1.25 var(--deck); letter-spacing: -.01em; }
+  .bio::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 300px; z-index: -1; background: linear-gradient(rgba(6, 8, 11, .35), rgba(6, 8, 11, .72) 55%, var(--bg)), url(img/containers.jpg) 50% 12% / cover; }
+  .bio-mark img { width: min(64vw, 330px); height: auto; margin: 0 auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .7)); }
+  .bio-list { display: grid; gap: 8px; margin-top: 26px; }
+  .bio-card, .bio-link { display: flex; align-items: center; gap: 14px; min-height: 58px; border: 1px solid var(--line); background: rgba(6, 8, 11, .72); backdrop-filter: blur(8px); text-align: left; }
+  .bio-link { padding: 9px 16px; gap: 16px; }
+  .bio-link:active, .bio-card:not(.bio-main):active { border-color: var(--ink); }
+  .bio-card { padding: 0; }
+  .bio-main { background: var(--accent); border-color: var(--accent); color: var(--on); padding: 10px; backdrop-filter: none; }
+  .bio-play { flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; padding: 10px 0 10px 10px; text-align: left; font: inherit; letter-spacing: inherit; }
+  .bio-cover { flex: none; width: 84px; aspect-ratio: 1; background: #0b0f14; }
+  .bio-main .bio-cover { width: 104px; }
+  .bio-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .bio-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .bio-text strong { font: 600 21px/1.05 var(--deck); letter-spacing: -.035em; overflow-wrap: anywhere; }
+  .bio-card strong { font-size: 23px; }
+  .bio-main strong { font-size: 46px; font-weight: 700; line-height: .9; letter-spacing: -.05em; }
+  .bio-flag, .bio-sub { color: var(--mute); font-variant-numeric: tabular-nums; }
+  .bio-main .bio-flag, .bio-main .bio-sub { color: inherit; }
+  .bio-main .bio-flag { font-weight: 600; }
+  .bio-main .bio-sub { white-space: nowrap; }
+  .bio-link svg { flex: none; width: 24px; height: 24px; fill: currentColor; }
+  .bio-link b { flex: none; font-weight: 600; background: var(--accent); color: var(--on); padding: 7px 11px; white-space: nowrap; }
+  .bio-small { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+  .bio-small a { display: grid; place-items: center; width: 52px; height: 52px; color: var(--mute); }
+  .bio-small a:active { color: var(--ink); }
+  .bio-small svg { width: 21px; height: 21px; fill: currentColor; }
+  .opt-tab, .foot button { display: none; }
+  .bio-side { flex: none; align-self: stretch; display: flex; align-items: center; padding: 0 16px; border-left: 1px solid var(--line); white-space: nowrap; }
+  .bio-more { display: block; margin-top: 22px; text-align: center; color: var(--mute); }
+  .deck { margin-top: 0; }
+  .now { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 104px; gap: 56px; }
+  .now-body { justify-content: flex-start; padding-top: 18px; }
+  .now-next { --cw: 100%; }
+  .now-last { --cw: 62%; }
+  .now-next .now-title { font-size: clamp(72px, calc(86vw / var(--len, 3)), 260px); }
+  .now-stage { flex-direction: column-reverse; align-items: stretch; gap: 16px; }
+  .count { gap: 20px; }
+  .deck-bar { top: 96px; }
+  .filters { gap: 12px; }
+  .deck-day, .deck-year { top: 124px; font: 500 14px/1.25 var(--deck); letter-spacing: -.01em; color: var(--mute); }
+  .deck-col { left: var(--pad); top: 148px; width: auto; right: var(--pad); font-size: clamp(30px, 9.4vw, 54px); }
+  .deck-col.long { font-size: clamp(24px, 7vw, 40px); }
+  .deck-col.xlong { font-size: clamp(20px, 5.6vw, 32px); }
+  .deck-next { display: none; }
+  .deck-hint { margin-left: auto; }
+  .deck-act { flex-wrap: wrap; justify-content: center; width: calc(100% - 2 * var(--pad)); top: calc(var(--cy, 60%) + var(--card, 180px) / 2 + 18px); }
+  .deck-years { gap: 11px; }
+  .view-list .deck-col { right: calc(var(--pad) + 31vw); }
+  .deck-rows { left: var(--pad); right: var(--pad); top: 46%; bottom: 52px; }
+  .drow button { grid-template-columns: minmax(0, 1fr) auto; gap: 14px; line-height: 30px; }
+  .drow-by { display: none; }
+  .deck-cover { right: var(--pad); bottom: auto; top: 152px; width: 27vw; }
+  .view-list .deck-act { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; top: calc(46% - 50px); padding: 0; }
+  .view-list .deck-glow { right: calc(var(--pad) + 13.5vw); bottom: auto; top: calc(152px + 13.5vw); }
   .contact-grid { grid-template-columns: 1fr; }
   html.on-about .about { display: block; }
   .about-photo { position: relative; height: auto; width: 100%; max-width: none; margin-top: 40px; }
   .about-text { padding-top: 0; margin-top: -56px; }
   .about-facts div { grid-template-columns: 120px minmax(0, 1fr); }
   /* options: a sheet from the bottom, so the wordmark stays in view above it */
-  .opt { inset: auto 0 0 0; width: auto; max-height: 56svh; padding: 14px 18px 18px; border-left: 0; border-top: 1px solid var(--line); transform: translateY(100%); }
-  .opt-tab { top: 64px; transform: none; padding: 10px 6px 10px 7px; }
-  .opt-open .opt-tab { right: 0; }
-  .past .opt-tab { display: none; }
+  .opt { inset: auto 0 0 0; width: auto; max-height: 56svh; padding: 14px 18px 18px; border-right: 0; border-top: 1px solid var(--line); transform: translateY(100%); }
   .opt-group { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 0 18px; }
   .opt-group h3 { width: 100%; }
   .opt-group button { width: auto; }
@@ -411,6 +514,14 @@ html:not(.type-clean) body::after { content: ""; position: fixed; inset: 0; z-in
   .opt-group i { display: none; }
   .opt-reset { padding-top: 16px; }
   .join-btn i { display: none; }
+  /* iPhone Safari colours its status bar and address bar from a fixed bar's
+     own solid colour; a see-through or blurred one lets the page show there */
+  .dock, .scrolled .top { background: var(--bg); backdrop-filter: none; }
+  html.nograin body::after { display: none; }
+  /* the grain lies on the page, under the two bars, so the bars are the top
+     thing at the screen's edges */
+  body { position: relative; }
+  html:not(.type-clean) body::after { position: absolute; z-index: 19; }
   .dock { grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 12px; }
   .dock-art, .dock-out span, .dock-via { display: none; }
   .dock-out { padding: 8px 9px; }

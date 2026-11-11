@@ -24,7 +24,7 @@
     <a href="#releases" data-scramble>Releases</a>
     <a href="#contact" data-scramble>Contact</a>
     <a href="#about" data-scramble>About</a>
-    <a class="top-list" href="https://laylo.com/segan" target="_blank" rel="noopener" data-scramble>Get new tunes first</a>
+    <a class="top-list" href="https://laylo.com/segan" target="_blank" rel="noopener" data-scramble>Join</a>
   </nav>
 </header>
 
@@ -34,65 +34,108 @@
   <canvas class="hero-canvas" aria-hidden="true"></canvas>
   <h1 class="hero-fallback"><img src="img/wordmark-1500.webp" alt="Segan"></h1>
   <div class="hero-foot">
-    <div class="hero-new" id="hero-new" hidden>
-      <button type="button" class="hero-new-cover" id="hero-new-cover" aria-label="Play the new release"><img id="hero-new-art" alt="" width="500" height="500"></button>
-      <div class="hero-new-text">
-        <p class="hero-new-flag"><b id="hero-new-kind">New</b><span id="hero-new-date"></span></p>
-        <a class="hero-new-title" id="hero-new-title" href="#new"></a>
-        <p class="hero-new-by" id="hero-new-by"></p>
-        <div class="hero-new-actions" id="hero-new-actions"></div>
-      </div>
-    </div>
+    <button type="button" class="opt-tab" id="opt-tab" aria-controls="opt" aria-expanded="false">Options</button>
     <p class="hero-where">New York</p>
   </div>
 </section>
 
-<section class="new" id="new" aria-labelledby="new-h">
-  <div class="rule"><h2 id="new-h">New</h2><span id="new-date"></span></div>
-  <div class="feature" id="feature"></div>
-  <div class="also" id="also"></div>
+<!-- the second screen: what is coming, and what just came out. Filled in by app.js -->
+<!-- phones open here instead of on the wordmark: every link, the most important first. Filled in by app.js -->
+<section class="bio" id="bio" aria-label="Links">
+  <p class="bio-mark"><img src="img/wordmark-1500.webp" alt="Segan"></p>
+  <div class="bio-list" id="bio-list"></div>
+  <a class="bio-more" href="#releases">Every release ↓</a>
 </section>
 
-<section class="releases" id="releases" aria-labelledby="rel-h">
-  <div class="rule">
-    <h2 id="rel-h">Releases</h2>
-    <div class="filters" role="group" aria-label="Show">
-      <button type="button" data-filter="all" aria-pressed="true">All</button>
-      <button type="button" data-filter="original" aria-pressed="false">Originals</button>
-      <button type="button" data-filter="flip" aria-pressed="false">Edits + bootlegs</button>
+<section class="now" id="new" aria-label="Next and latest release">
+  <article class="now-next" id="now-next" hidden>
+    <header class="now-rule"><span><i>(1)</i> <b id="next-label">Next</b></span><span id="next-date"></span></header>
+    <div class="now-body">
+      <div class="now-stage">
+        <a class="now-cover cover arrive" id="next-cover" target="_blank" rel="noopener"><img id="next-art" alt=""></a>
+        <div class="count arrive" id="count" role="timer" aria-label="Time until the release">
+          <span><b id="count-d">00</b><i>days</i></span>
+          <span><b id="count-h">00</b><i>hours</i></span>
+          <span><b id="count-m">00</b><i>min</i></span>
+          <span><b id="count-s">00</b><i>sec</i></span>
+        </div>
+      </div>
+      <div class="now-text">
+        <h2 class="now-title arrive" id="next-title"></h2>
+        <div class="now-actions" id="next-actions"></div>
+      </div>
     </div>
+  </article>
+  <article class="now-last" id="now-last">
+    <header class="now-rule"><span><i id="last-n">(2)</i> <b>Latest</b></span><span id="last-date"></span></header>
+    <div class="now-body">
+      <button type="button" class="now-cover cover arrive" id="last-cover" aria-label="Play the latest release"><img id="last-art" alt=""></button>
+      <div class="now-text">
+        <p class="now-by arrive" id="last-by"></p>
+        <h2 class="now-title arrive" id="last-title"></h2>
+        <div class="now-actions" id="last-actions"></div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- every release, on one screen: a wheel turned sideways, or a list -->
+<section class="deck" id="releases" aria-label="Releases">
+  <div class="deck-pin" id="deck-pin">
+    <div class="deck-letters" aria-hidden="true"><span id="deck-letters">SEGAN SEGAN </span></div>
+    <div class="deck-glow" aria-hidden="true"><img id="glow-a" alt=""><img id="glow-b" alt=""></div>
+    <div class="deck-bar">
+      <div class="deck-views" role="group" aria-label="View">
+        <button type="button" data-view="wheel">Wheel</button><span>, </span><button type="button" data-view="list">List</button>
+      </div>
+      <div class="filters" role="group" aria-label="Show">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="original" aria-pressed="false">Originals</button>
+        <button type="button" data-filter="flip" aria-pressed="false">Edits + bootlegs</button>
+      </div>
+    </div>
+    <p class="deck-day" id="deck-day" aria-hidden="true"></p>
+    <p class="deck-year" id="deck-year" aria-hidden="true"></p>
+    <div class="wheel" id="wheel"></div>
+    <div class="deck-col" id="deck-col" aria-live="polite"></div>
+    <div class="deck-next" id="deck-next" aria-hidden="true"></div>
+    <div class="deck-act" id="deck-act"></div>
+    <div class="deck-rows" id="deck-rows"><ol id="deck-list"></ol></div>
+    <button type="button" class="deck-cover" id="deck-cover" aria-label="Play"><canvas width="600" height="600"></canvas></button>
+    <div class="deck-foot">
+      <div class="deck-years" id="deck-years" role="group" aria-label="Jump to a year"></div>
+      <span class="deck-hint" id="deck-hint">Drag, swipe or ← →</span>
+    </div>
+    <i class="deck-line" id="deck-line" aria-hidden="true"></i>
   </div>
-  <ol class="list" id="list"></ol>
-  <button type="button" class="more" id="more"></button>
 </section>
 
 <section class="contact" id="contact" aria-labelledby="contact-h">
   <div class="rule"><h2 id="contact-h">Contact</h2><a href="#about">About Segan →</a></div>
   <div class="contact-grid">
     <div>
-      <h3 class="big" data-break>Bookings</h3>
+      <h3 class="big" data-chrome>Bookings</h3>
       <a href="mailto:mgmt@segan.com">mgmt@segan.com</a>
     </div>
     <div>
-      <h3 class="big" data-break>Everything else</h3>
+      <h3 class="big" data-chrome>Everything else</h3>
       <a href="mailto:segan@segan.com">segan@segan.com</a>
     </div>
   </div>
   <ul class="links">
-    <li><a href="https://open.spotify.com/artist/0NgWGGk9p04zLTeFbIdsVO" target="_blank" rel="noopener" data-break>Spotify</a></li>
-    <li><a href="https://soundcloud.com/sam-segan" target="_blank" rel="noopener" data-break>SoundCloud</a></li>
-    <li><a href="https://soundcloud.com/notsegan" target="_blank" rel="noopener" data-break>Segan's Selects</a></li>
-    <li><a href="https://www.instagram.com/segan/" target="_blank" rel="noopener" data-break>Instagram</a></li>
-    <li><a href="https://www.tiktok.com/@seganmusic" target="_blank" rel="noopener" data-break>TikTok</a></li>
-    <li><a href="https://www.youtube.com/channel/UCxdXumVvOyv0oQ_HzxyNxUA" target="_blank" rel="noopener" data-break>YouTube</a></li>
-    <li><a href="https://x.com/seganofficial" target="_blank" rel="noopener" data-break>X</a></li>
+    <li><a href="https://open.spotify.com/artist/0NgWGGk9p04zLTeFbIdsVO" target="_blank" rel="noopener" data-chrome>Spotify</a></li>
+    <li><a href="https://soundcloud.com/sam-segan" target="_blank" rel="noopener" data-chrome>SoundCloud</a></li>
+    <li><a href="https://soundcloud.com/notsegan" target="_blank" rel="noopener" data-chrome>Segan's Selects</a></li>
+    <li><a href="https://www.instagram.com/segan/" target="_blank" rel="noopener" data-chrome>Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@seganmusic" target="_blank" rel="noopener" data-chrome>TikTok</a></li>
+    <li><a href="https://www.youtube.com/channel/UCxdXumVvOyv0oQ_HzxyNxUA" target="_blank" rel="noopener" data-chrome>YouTube</a></li>
+    <li><a href="https://x.com/seganofficial" target="_blank" rel="noopener" data-chrome>X</a></li>
   </ul>
 </section>
 
 <section class="join" aria-labelledby="join-h">
-  <h2 class="big" id="join-h" data-break>New tunes first.</h2>
-  <p>One text when something drops.</p>
-  <a class="join-btn" href="https://laylo.com/segan" target="_blank" rel="noopener"><span>Join the list</span><i aria-hidden="true">↗</i></a>
+  <h2 class="big" id="join-h" data-chrome>Get new tunes first.</h2>
+  <a class="join-btn" href="https://laylo.com/segan" target="_blank" rel="noopener"><span>Join the list</span><i aria-hidden="true">↗&#xFE0E;</i></a>
 </section>
 
 <!-- its own view: shown instead of the sections above when the address ends in #about -->
@@ -100,11 +143,9 @@
   <figure class="about-photo" id="about-photo"><img src="img/segan.jpg" alt="Segan, lit green against a black room" width="1600" height="1600"></figure>
   <div class="about-text">
     <p class="about-kicker">About</p>
-    <h2 class="about-head big" id="about-h" data-break>Bass music for dark rooms.</h2>
+    <h2 class="about-head big" id="about-h" data-chrome>For the culture.</h2>
     <div class="about-bio">
       <p>Segan is a producer from New York making bass music for warehouses, basements and the walk home after.</p>
-      <p>Originals come out under his own name. The edits and bootlegs go up on <a href="https://soundcloud.com/notsegan" target="_blank" rel="noopener">Segan's Selects</a>, his side account, free to download.</p>
-      <p>No rules on tempo. If you need a genre: mostly drum &amp; bass.</p>
     </div>
     <dl class="about-facts">
       <div><dt>Bookings</dt><dd><a href="mailto:mgmt@segan.com">mgmt@segan.com</a></dd></div>
@@ -125,50 +166,32 @@
   <a href="#top" data-scramble>Back to top</a>
 </footer>
 
-<!-- options: effect, backdrop, type and accent. Filled in by app.js -->
-<button type="button" class="opt-tab" id="opt-tab" aria-controls="opt" aria-expanded="false">Options</button>
+<!-- options: effect, backdrop, accent and releases view. The tab that opens it sits in the hero, bottom left. Filled in by app.js -->
 <aside class="opt" id="opt" aria-label="Options" inert>
   <div class="opt-head"><h2>Options</h2><button type="button" id="opt-close" aria-label="Close options">×</button></div>
   <div id="opt-groups"></div>
   <button type="button" class="opt-reset" id="opt-reset">Back to the defaults</button>
 </aside>
 
-<div class="peek" id="peek" aria-hidden="true"><canvas width="520" height="520"></canvas></div>
-
 <div class="dock" id="dock" hidden>
   <button type="button" class="dock-play" id="dock-play" aria-label="Pause"></button>
   <img class="dock-art" id="dock-art" alt="">
   <div class="dock-meta"><strong id="dock-title"></strong><span><span id="dock-time"></span><span class="dock-via"> / playing from SoundCloud</span></span></div>
   <div class="dock-bar" id="dock-bar"><i id="dock-fill"></i></div>
-  <a class="dock-out" id="dock-out" target="_blank" rel="noopener"><span>Open in </span>SoundCloud ↗</a>
+  <a class="dock-out" id="dock-out" target="_blank" rel="noopener"><span>Open in </span>SoundCloud ↗&#xFE0E;</a>
   <button type="button" class="dock-close" id="dock-close" aria-label="Close player">×</button>
 </div>
 
-<!-- rough: chipped edges on the big type. break-*: the letters crack into slabs for a moment (app.js drives the scale) -->
+<!-- rough: chipped edges on the big type (not in the Dusty type). The chrome on touched type is made by textfx.js -->
 <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
   <filter id="rough" x="-3%" y="-8%" width="106%" height="116%" color-interpolation-filters="sRGB">
     <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="4" result="n"/>
     <feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
-  <filter id="break-l" x="-8%" y="-20%" width="116%" height="140%" color-interpolation-filters="sRGB">
-    <feTurbulence type="fractalNoise" baseFrequency=".005 .024" numOctaves="1" seed="1" result="n"/>
-    <feComponentTransfer in="n" result="s">
-      <feFuncR type="discrete" tableValues=".5 .5 .5 .1 .5 .5 .9 .5 .5 .5"/>
-      <feFuncG type="discrete" tableValues=".5 .5 .5 .5 .2 .5 .8 .5 .5 .5"/>
-    </feComponentTransfer>
-    <feDisplacementMap in="SourceGraphic" in2="s" scale="0" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-  <filter id="break-s" x="-8%" y="-30%" width="116%" height="160%" color-interpolation-filters="sRGB">
-    <feTurbulence type="fractalNoise" baseFrequency=".012 .09" numOctaves="1" seed="1" result="n"/>
-    <feComponentTransfer in="n" result="s">
-      <feFuncR type="discrete" tableValues=".5 .5 .5 .1 .5 .5 .9 .5 .5 .5"/>
-      <feFuncG type="discrete" tableValues=".5 .5 .5 .5 .2 .5 .8 .5 .5 .5"/>
-    </feComponentTransfer>
-    <feDisplacementMap in="SourceGraphic" in2="s" scale="0" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
 </svg>
 
 <script src="fx.js"></script>
+<script src="textfx.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
